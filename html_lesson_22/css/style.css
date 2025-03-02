@@ -1,0 +1,18 @@
+.header {
+  background: #fd7f02b3;
+  height: 60px;
+}
+.blockquote {
+  background: #ff7b0071;
+}
+.fotter {
+  margin-top: 20px;
+  background: #c300ff;
+  height: 300px;
+  color: white;  
+}
+
+.fotter__list-item a {  
+  color: #ffffff;
+}
+
