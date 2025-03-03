@@ -1,0 +1,17 @@
+.main {
+  background: #ff950232;
+  box-sizing: border-box;
+  height: 300px;
+  border-radius: 10px 0 0 10px;
+  border: 1px solid #111;
+  overflow: auto;
+}
+.main__item {
+  display: inline-block;
+  background: #ff9100;
+  width: 200px;
+  border-radius: 15px;
+  box-shadow: inset 0px 0px 5px #111;
+  padding: 30px 20px;
+  margin: 10px 5px;
+}
