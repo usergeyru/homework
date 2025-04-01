@@ -1,0 +1,52 @@
+/* ==========модалка===================== */
+.modal__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0px 50px;
+  height: 50vh;
+  width: 50vw;
+  font-size: 24px;
+  border-radius: 20px;
+  background: #dedede;  
+}
+/* ==========обертка модалки======================== */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+  inset: 0;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  background: #00000070; 
+  transition: all .3s;
+}
+.modal-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========Кнопка открытия модалки=================== */
+.btn-open {
+  position: absolute; 
+  top: 10%;
+  left: 43%;
+  font-size: 24px;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 10px;
+  background: #fd6e00;
+}
+/* =================Кнопка закрытия модалки================== */
+.close-btn {
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  font-size: 24px;
+  background: inherit;
+}
+
