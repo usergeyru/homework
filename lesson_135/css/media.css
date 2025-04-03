@@ -1,0 +1,181 @@
+/* ======================================MEDIA ЗАПРОСЫ */
+
+/* =====================================================1200 PX */
+@media (max-width: 1200px) {
+  .hero__content {
+    margin: 0;
+    max-width: 377px;
+  }
+
+  .hero__badge {
+    margin-top: 30px;
+    position: static;
+    max-width: none;
+    text-align: left;
+  }
+
+  /* ===============FOOTER */
+  .footer__inner {
+    justify-content: space-between;
+    grid-template: repeat(2, auto) / repeat(3, auto);
+  }
+
+  .footer__column:last-child {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1100px) {
+  .about__img {
+    grid-row: auto;
+  }
+
+  .about__body {
+    grid-row: auto;
+    align-self: center;
+  }
+
+  .about__grid {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ===============================================MAX - WIDTH 900 PX */
+@media (max-width: 900px) {
+  .nav {
+    position: fixed;
+    padding: 26vh 15px 30px;
+    inset: 0;
+    z-index: 10;
+    font-size: 24px;
+    background: #FFF9F4;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .body--opened-menu .nav {
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .burger-icon {
+    display: flex;
+  }
+
+  /* =======================FOOTER */
+  .footer__inner {
+    justify-content: center;
+    grid-template: none;
+    text-align: center;
+    gap: 5vh;
+  }
+
+  /* =======================SOCIALS */
+  .footer__column:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* =======================PHONE NUMBER */
+  .footer__column-number {
+    margin-top: 15px;
+  }
+}
+
+/* ================================MAX - WIDTH 800 PX */
+@media (max-width: 800px) {
+  .hero__info {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__image {
+    display: none;
+  }
+
+  .hero__badge--mobile {
+    display: flex;
+  }
+
+  /* ===========================ABOUT======== */
+  .about {
+    padding: 60px 0;
+  }
+
+  .about__image {
+    max-width: 500px;
+    justify-self: center;
+  }
+
+  .about__inner {
+    grid-template: none;
+  }
+
+  .about__body {
+    text-align: center;
+  }
+
+  .about__grid {
+    grid-template: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__title {
+    font-size: 12vw;
+  }
+
+  /* ==================== */
+  .about {
+    padding: 60px 0;
+  }
+  .about__badge {
+    bottom: 0%;
+    left: 0%;
+    max-width: none;
+    border-radius: 0px;
+  }
+
+  .about__text {
+    margin: 30px 0 5px 0;
+  }
+
+  .about__grid {
+    gap: 15px;
+  }
+
+  .about__grid-item {
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 450px) {
+  .modal__inner {
+    padding: 0 25px 30px 25px;
+  }
+  .modal__img {
+    margin-top: -40px;
+    max-width: 60%;
+  }
+  .modal__title {
+    font-size: 35px;
+  }
+  /* ================= */
+  .about__title {
+    font-size: 15vw;
+  }
+}
