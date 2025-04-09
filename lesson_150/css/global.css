@@ -1,0 +1,153 @@
+:root {
+  --font-color: #312C27;
+  --title-color: #1F1711;
+  --accent-bg: #FFE0CB;
+  --accent-color: #FFA55C;
+  --input-color: #AC907A;
+  --transition: all .4s;
+}
+.body {
+  font-family: 'montserrat', sans-serif;
+  color: var(--font-color);
+  background-color: #FFF9F4;
+  line-height: 1.5;
+}
+.body--opened-menu {
+  overflow: hidden;
+}
+.body--modal-opened {
+  overflow: hidden;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+.container {
+  max-width: 1310px;
+  padding: 0 15px;
+  margin: 0 auto;
+  height: 100%;
+}
+/* ===================GENERAL TITLE============================== */
+.title {
+  font-family: 'Gabriola', sans-serif;
+  font-size: 74px;
+  line-height: 0.82;
+  color: var(--title-color);
+}
+/* ====================================================MODAL============================================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;  
+  justify-content: center;  
+  padding: 0 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all .6s;
+}
+.body--modal-opened .modal{
+  opacity: 1;
+  visibility: visible; 
+}
+.modal__inner {
+  max-width: 428px;
+  border-radius: 20px;
+  background: #FFF9F4;
+  position: relative;
+  padding: 0 60px 60px 60px;
+}
+.modal__img {
+  margin: -65px 0 15px 22px;
+  max-width: 100%;
+}
+.modal__title {
+  font-family: 'Gabriola', sans-serif;
+  margin-bottom: 10px;
+  font-size: 42px;
+  line-height: .9;
+}
+/* =============MODAL FORM INPUT============= */
+.modal__form-lable {
+  position: relative;
+  display: block;
+  margin: 30px 0 10px 0;
+  }
+  .modal__form-lable span {
+    position:absolute;
+    top: 12px;
+    left: 28px;
+    font-size: 11px;
+    color: var(--input-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+  }
+  .modal__form-input:focus + span {
+    opacity: 1;
+    visibility: visible;
+  }
+  /* ==Само поле инпута */
+  .modal__form-input { 
+    display: block;
+    width: 100%;
+    padding: 19px 41px 19px 28px;
+    color: var(--font-color);
+    border: 1px solid var(--input-color);
+    border-radius: 100px;
+    font-size: 16px;
+    background: transparent;
+    transition: var(--transition);
+  }
+  .modal__form-input:hover {
+    border-color: var(--accent-color);
+  }
+  .modal__form-input:focus {
+    padding: 26px 41px 12px 28px;
+  }
+  .modal__form-input::placeholder {
+    color: var(--input-color);
+    transition: var(--transition);
+  }
+  .modal__form-input:hover::placeholder {
+    color: var(--accent-color);
+  }
+  /* ==========КНОПКА ЗАКРЫТИЯ========= */
+  .modal__close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .modal__close-btn:hover path,
+  .modal__close-btn:hover rect{
+    stroke: var(--input-color);
+    transition: var(--transition);
+  }
+/* ====================================================BUTTON============================================ */
+.button {
+  font-size: 16px;
+  width: 100%;
+  border-radius: 100px;
+  padding: 18px;
+  background-color: var(--accent-color);
+  font-weight: 500;
+  line-height: 1.6;
+  transition: var(--transition);
+}
+.button:hover {
+  font-size: 16px;
+  width: 100%;
+  border-radius: 100px;
+  padding: 18px;
+  background-color: #FF9138;
+  font-weight: 500;
+  line-height: 1.6;
+}
