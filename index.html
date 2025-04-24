@@ -1,183 +1,1020 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Домашняя работа</title>
-    <link rel="shortcut icon" href="src/logo.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Rubik:wght@500&display=swap"
-          rel="stylesheet">
-    <link rel="stylesheet" href="src/style.css">
-</head>
-<body id="body">
-<div class="overlay" id="overlay"></div>
-<div class="layout">
-    <div class="burger" id="burger">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-            <g id="SVGRepo_iconCarrier">
-                <path d="M4 18L20 18" stroke="#DAF765" stroke-width="2" stroke-linecap="round"></path>
-                <path d="M4 12L20 12" stroke="#DAF765" stroke-width="2" stroke-linecap="round"></path>
-                <path d="M4 6L20 6" stroke="#DAF765" stroke-width="2" stroke-linecap="round"></path>
-            </g>
-        </svg>
-    </div>
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar__inner">
-            <div class="logo">
-                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_513_74730)">
-                        <path d="M46.17 -0.257004H3.83C1.57281 -0.257004 -0.257 1.57281 -0.257 3.83V46.17C-0.257 48.4272 1.57281 50.257 3.83 50.257H46.17C48.4272 50.257 50.257 48.4272 50.257 46.17V3.83C50.257 1.57281 48.4272 -0.257004 46.17 -0.257004Z"
-                              fill="#DAF765"/>
-                        <path d="M24.375 38.4H42.461L27.441 3.1585H20.4355C20.4355 3.1585 6.7895 35.881 1.1945 49.294C2.015 50.0275 3.0945 50.257 3.6945 50.257H8.8445L23.954 13.07L32.0465 32.8285H24.375V38.4Z"
-                              fill="#323843"/>
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_513_74730">
-                            <rect width="50" height="50" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-            </div>
-            <div class="sidebar__user">
-                <div class="sidebar__name">Сергей Ушенин</div>
-                <div class="sidebar__text">Счастливый студент</div>
-            </div>
-            <div class="sidebar__tabs">
-                <div class="sidebar__item">
-                    <button class="sidebar__button active" id="tasks">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <g clip-path="url(#clip0_704_74543)">
-                                <path d="M17.7083 20H2.29167C1.0275 20 0 18.9725 0 17.7083V2.29167C0 1.0275 1.0275 0 2.29167 0H17.7083C18.9725 0 20 1.0275 20 2.29167V17.7083C20 18.9725 18.9725 20 17.7083 20ZM2.29167 1.25C1.7175 1.25 1.25 1.7175 1.25 2.29167V17.7083C1.25 18.2825 1.7175 18.75 2.29167 18.75H17.7083C18.2825 18.75 18.75 18.2825 18.75 17.7083V2.29167C18.75 1.7175 18.2825 1.25 17.7083 1.25H2.29167Z"
-                                      fill="black"/>
-                                <path d="M6.04167 13.125C5.88167 13.125 5.72167 13.0642 5.6 12.9417L3.1 10.4417C2.85583 10.1975 2.85583 9.80167 3.1 9.5575L5.6 7.0575C5.84417 6.81333 6.24 6.81333 6.48417 7.0575C6.72833 7.30167 6.72833 7.6975 6.48417 7.94167L4.42583 10L6.48417 12.0583C6.72833 12.3025 6.72833 12.6983 6.48417 12.9425C6.36167 13.0642 6.20167 13.125 6.04167 13.125Z"
-                                      fill="black"/>
-                                <path d="M8.95833 14.1667C8.9 14.1667 8.84 14.1583 8.78167 14.1417C8.45083 14.0442 8.26083 13.6967 8.35833 13.3658L10.4417 6.28251C10.5392 5.95084 10.8892 5.76417 11.2175 5.85917C11.5483 5.95667 11.7383 6.30417 11.6408 6.63501L9.5575 13.7183C9.47833 13.9908 9.22833 14.1667 8.95833 14.1667Z"
-                                      fill="black"/>
-                                <path d="M13.9583 13.125C13.7983 13.125 13.6383 13.0642 13.5167 12.9417C13.2725 12.6975 13.2725 12.3017 13.5167 12.0575L15.575 9.99916L13.5167 7.94083C13.2725 7.69666 13.2725 7.30083 13.5167 7.05666C13.7608 6.81249 14.1567 6.81249 14.4008 7.05666L16.9008 9.55666C17.145 9.80083 17.145 10.1967 16.9008 10.4408L14.4008 12.9408C14.2783 13.0642 14.1183 13.125 13.9583 13.125Z"
-                                      fill="black"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_704_74543">
-                                    <rect width="20" height="20" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <span>Домашние задания</span></button>
-                </div>
-                <div class="sidebar__item">
-                    <button class="sidebar__button" id="diplom">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <g clip-path="url(#clip0_704_74553)">
-                                <path d="M23.2628 10.5971C23.7176 10.365 24 9.90375 24 9.39337C24 8.883 23.7176 8.42175 23.2628 8.18962L12.6135 2.75362C12.2291 2.55824 11.7705 2.55787 11.3854 2.75399L0.736875 8.19C0.282375 8.42175 0 8.883 0 9.39337C0 9.90375 0.282375 10.365 0.736875 10.5971L4.89038 12.7177V18.2074C4.89038 19.8154 8.412 21.393 12 21.393C15.5884 21.393 19.1096 19.815 19.1096 18.2074V12.7174L21.4609 11.517V15.8017L20.901 17.2305C20.7409 17.6389 20.7934 18.0994 21.0405 18.4616C21.2876 18.8246 21.6979 19.041 22.1366 19.041C22.5754 19.041 22.9852 18.8246 23.2324 18.462C23.4795 18.099 23.532 17.6385 23.3719 17.2301L22.8124 15.8021V10.827L23.2628 10.5971ZM17.7623 18.1721C17.6198 18.6375 15.3491 20.0419 12 20.0419C8.65088 20.0419 6.38025 18.6375 6.2415 18.2074V12.3037L6.23887 12.3019C6.23812 12.057 6.1065 11.8207 5.87325 11.7019L1.3515 9.39337L12 3.95737L22.6489 9.39337L12 14.8294L5.87325 11.7019C5.54063 11.5331 4.6695 11.6674 4.5 12C4.33012 12.3322 4.55813 12.5479 4.89038 12.7177L11.3857 16.0331C11.5781 16.1314 11.7889 16.1805 12 16.1805C12.2107 16.1805 12.4222 16.1314 12.6146 16.0331L17.7593 13.407L17.7623 18.1721Z"
-                                      fill="black"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_704_74553">
-                                    <rect width="24" height="24" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <span>Дипломный проект</span></button>
-                </div>
-            </div>
-        </div>
+<html lang="ru">
 
-    </aside>
-    <div class="content">
-        <div class="container">
-            <div class="content__block" id="tasksBlock">
-                <div class="content__title">Домашние задания</div>
-                <ul class="content__list"> 
-                    <li class="content__list-item">
-                        <a href="lesson_1/index.html">Урок 1</a>
-                    </li>
-                     <li class="content__list-item">
-                        <a href="lesson_9/index.html">Урок 9</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="html_lesson_22/index.html">Урок 22</a>
-                    </li> 
-                    <li class="content__list-item">
-                        <a href="html_lesson_34/index.html">Урок 34</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_45/index.html">Урок 45</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_55/index.html">Урок 55</a>
-                    </li>
-                     <li class="content__list-item">
-                        <a href="lesson_64/index.html">Урок 64</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_68/index.html">Урок 68</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_69/index.html">Урок 69</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_71/index.html">Урок 71</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_72/index.html">Урок 72</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_80,83/index.html">Урок 83</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_86/index.html">Урок 86</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_101/index.html">Урок 101</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_103/index.html">Урок 103</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_112/index.html">Урок 112</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_126">Урок 126</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_130">Урок 130</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_135">Урок 135</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_143">Урок 143</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_147">Урок 147</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_150">Урок 150</a>
-                    </li>
-                    <li class="content__list-item">
-                        <a href="lesson_154">Урок 154</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="content__block hidden" id="diplomBlock">
-                <div class="content__title">Дипломный проект</div>
-                <div class="content__list-diplom">
-                    <a href="lesson_156">Дипломный проект</a>
-                </div>
-                <div class="content__decor">
-                    <div class="content__decor-text">Давай проверим, чему ты научился!</div>
-                    <div class="content__decor-img">
-                        <img src="src/decor.png" alt="decor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="./img/logo/header__logo.svg">
+  <link rel="stylesheet" href="./css/fonts.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/media.css">
+  <title>Leader classic</title>
+</head>
+
+<body class="body">
+  <div class="body__wrapper">
+    <header class="header">
+      <div class="header__container">
+        <div class="header__inner">
+          <div class="header__top">
+            <div class="header__glow glow"></div>
+            <div class="header__top-inner">
+              <button class="burger-icon">
+                <span></span>
+              </button>
+              <a class="header__logo" href="/">
+                <img src="img/logo/header__logo2.svg" alt="Локотип компании leader classic">
+
+              </a>
+              <nav class="nav" id="up">
+                <ul class="nav__list">
+                  <li class="nav__item">
+                    <div class="dropdown">
+                      <button class="dropbtn">
+                        <span class="language__flag"></span>
+                        <span>RU</span>
+                      </button>
+                      <div class="dropdown-content ">
+                        <a class="dropdown-content-link hidden" href="#">
+                          <div class="language__flag--eng">
+                            <img src="img/icons/eng-flag.png" alt="">
+                          </div>
+                          <p>ENG</p>
+                        </a>
+                      </div>
                     </div>
-                </div>
+                  </li>
+                  <li class="nav__item">
+                    <a class="nav__item-link" href="#">Тарифы</a>
+                  </li>
+                  <li class="nav__item">
+                    <a class="nav__item-link" href="#bonus">Бонус</a>
+                  </li>
+                  <li class="nav__item">
+                    <a class="nav__item-link" href="#">Реферальная</a>
+                  </li>
+                  <li class="nav__item">
+                    <a class="nav__item-link nav__item-contact" href="#">
+                      Контакты
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+              <div class="header__box-btn">
+                <a href="/pages/account/index.html" class="header__box-login" target="_blank">
+                  Войти
+                </a>
+                <a href="#" class="header__box-button">
+                  Открыть счет
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-<script src="src/index.js"></script>
+        <section class="hero">
+          <div class="hero__inner">
+            <div class="hero__top">
+              <div class="hero__top-wrapper">
+                <div class="hero__top-inner">
+                  <img class="hero__top-img" src="img/decor/hero__top-gift.png" alt="">
+                  <div class="hero__top-info">
+
+                    <span>
+                      Станьте миллионером с Leader Classic
+                    </span>
+                    <br>
+                    Откройте счет, инвестируйте в фонды Leader Classic и получите шанс выиграть один из 100 000 000 ₽
+                  </div>
+                  <!-- таймер обратного отсчета -->
+                  <div class="countdown" id="countdown">
+                    <div class="time">
+                      <h2 id="days">00</h2>
+                      <small>д</small>
+                    </div>
+                    :
+                    <div class="time">
+                      <h2 id="hours">00</h2>
+                      <small>ч</small>
+                    </div>
+                    :
+                    <div class="time">
+                      <h2 id="minutes">00</h2>
+                      <small>м</small>
+                    </div>
+                    :
+                    <div class="time">
+                      <h2 id="seconds">00</h2>
+                      <small>с</small>
+                    </div>
+                  </div>
+                  <div class="preloader" id="preloader">
+                    <div class="loader"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hero__wrapper">
+
+              <div class="hero__main">
+                <img class="hero__main-arrow" src="img/decor/Arrow.svg" alt="">
+                <div class="hero__main-inner">
+                  <h1 class="hero__title">
+                    ТОП-5 акций
+                    <br>
+                    с доходностью до 10-30%
+                    <br>
+                    уже в 2022 году
+                  </h1>
+                  <ul class="hero__list">
+                    <li class="hero__list-item">
+                      Открытие брокерского счета за 5 минут без визита в офис
+                    </li>
+                    <li class="hero__list-item">
+                      Доступ к ценным бумагам с любого устройства
+                    </li>
+                    <li class="hero__list-item">
+                      Поддержка в чате 24/7
+                    </li>
+                  </ul>
+                  <div class="hero__box-button">
+                    <a href="#" class="hero__button button">
+                      <span>Скачать ТОП-5 акции</span>
+                      <img class="hero__button-img" src="img/decor/check-list.png" alt="">
+                    </a>
+                    <a href="#" class="hero__button--empty">
+                      <span>Открыть счет</span>
+                    </a>
+                  </div>
+                  <div class="hero__users">
+                    <img class="hero__users--img1" src="img/content/users/girl.svg" alt="">
+                    <img class="hero__users--img2" src="img/content/users/man.svg" alt="">
+                    <img class="hero__users--img3" src="img/content/users/man2.svg" alt="">
+                    <span>Сейчас инвестируют <br>100 000+ пользователей</span>
+                  </div>
+                </div>
+              </div>
+              <div class="hero__glow hero__glow--mobile"></div>
+
+              <img class="hero__img hero__img--mobile" src="img/decor/phone.png" alt="">
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+    <main class="main">
+        <section class="main__money money">
+            <div class="money__inner">
+              <h2 class="money__title title">
+                Ваши деньги способны на большее
+              </h2>
+              <p class="money__subtitle subtitle">
+                Сколько бы вы заработали, инвестируй <br> 100 000 ₽ год назад?
+              </p>
+              <div class="money__container">
+                <div class="money__company">
+                      <div class="money__company-item money__company-item--down">
+                        <div class="money__company-img">
+                          <img src="img/content/company/tesla.jpg" alt="логотип тесла">
+                        </div>
+                        <p class="money__company-percent">
+                          +83.97%
+                        </p>
+                        <p class="money__company-profit">
+                          +72.000₽
+                        </p>
+                      </div>
+                      <div class="money__company-item">
+                        <div class="money__company-img">
+                          <img src="img/content/company/amazon.jpg" alt="логотип амазон">
+                        </div>
+                        <p class="money__company-percent">
+                          +4.11%
+                        </p>
+                        <p class="money__company-profit">
+                          +72.000₽
+                        </p>
+                      </div>
+                      <div class="money__company-item money__company-item--down">
+                        <div class="money__company-img">
+                          <img src="img/content/company/apple-icon.svg" alt="логотип Apple" width="50">
+                        </div>
+                        <p class="money__company-percent">
+                          +26.36%
+                        </p>
+                        <p class="money__company-profit">
+                          +72.000₽
+                        </p>
+                      </div>
+                      <div class="money__company-item">
+                        <div class="money__company-img">
+                          <img src="img/content/company/yandex.jpg" alt="логотип яндекс">
+                        </div>
+                        <p class="money__company-percent">
+                          +17.19%
+                        </p>
+                        <p class="money__company-profit">
+                          +72.000₽
+                        </p>
+                      </div>
+                      <div class="money__company-item money__company-item--down">
+                        <div class="money__company-img">
+                          <img src="img/content/company/facebook.jpg" alt="логотип Facebook">
+                        </div>
+                        <p class="money__company-percent">
+                          +31.32%
+                        </p>
+                        <p class="money__company-profit">
+                          +72.000₽
+                        </p>
+                      </div>
+                      <div class="money__company-item money__company-item--hidden">
+                        <div class="money__company-img">
+                          <img src="img/content/company/microsoft.jpg" alt="логотип майкрософт">
+                        </div>
+                        <p class="money__company-percent">
+                          +38.99%
+                        </p>
+                        <p class="money__company-profit">
+                          +72.000₽
+                        </p>
+                      </div>
+                </div>
+              </div>
+              <div class="money__catalog subtitle">
+                И еще более 10 000 других ценных бумаг доступно <span>в каталоге</span>
+              </div>
+              <a href="#" class="money__button button">
+                <span>Получить каталог</span>
+              </a>
+            </div>
+        </section>
+
+        <div class="container">
+          <section class="tools">
+            <div class="tools__inner">
+              <h2 class="tools__title title">
+                Большой выбор инструментов
+              </h2>
+              <div class="tools__grid">
+                <a href="#" class="tools__support">
+                  <img src="img/content/tools/support.svg" alt="">
+                  <p>Support</p>
+                </a>
+                  <a href="#up" class="tools__arrow-up">
+                    <img src="img/icons/arrow-up.svg" alt="">
+                  </a>
+                <div class="tools__grid-item">
+                  <div class="tools__grid-img">
+                    <img src="img/content/tools/candles.svg" alt="японские свечи">
+                  </div>
+                  <p class="tools__grid-item-title">Forex</p>
+                  <p class="tools__grid-item-text">Trade 70 major, minor & exotic currency pairs with competitive trading
+                    conditions</p>
+                </div>
+                <div class="tools__grid-item">
+                  <div class="tools__grid-img">
+                    <img src="img/content/tools/metal.svg" alt="металлы">
+                  </div>
+                  <p class="tools__grid-item-title">Metals</p>
+                  <p class="tools__grid-item-text">Trade metal commodities such as Gold, Silver & Platinum</p>
+                </div>
+                <div class="tools__grid-item">
+                  <div class="tools__grid-img">
+                    <img src="img/content/tools/schelule2.svg" alt="график">
+                  </div>
+                  <p class="tools__grid-item-title">Indices</p>
+                  <p class="tools__grid-item-text">Trade Major and Minor Index CFDs Spot and Futures from around the
+                    globe.</p>
+                </div>
+                <div class="tools__grid-item">
+                  <div class="tools__grid-img">
+                    <img src="img/content/tools/science.svg" alt="крипта">
+                  </div>
+                  <p class="tools__grid-item-title">Cryptocurrencies</p>
+                  <p class="tools__grid-item-text">Trade Bitcoin, Ether, Doge & more crypto & altcoin CFDs</p>
+                </div>
+                <div class="tools__grid-item">
+                  <div class="tools__grid-img">
+                    <img src="img/content/tools/schedule.svg" alt="график">
+                  </div>
+                  <p class="tools__grid-item-title">Shares</p>
+                  <p class="tools__grid-item-text">Hundreds of public companies from the US, UK, France & Germany
+                    available to trade.</p>
+                </div>
+                <div class="tools__grid-item">
+                  <div class="tools__grid-img">
+                    <img src="img/content/tools/oil.svg" alt="энергия">
+                  </div>
+                  <p class="tools__grid-item-title">Energies</p>
+                  <p class="tools__grid-item-text">Discover oportunities on UK & US Crude Oil, as well as Natural Gas Spot
+                    and Future CFDs.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="service">
+            <div class="service__inner">
+              <h2 class="service__title title">
+                Инвестиции доступные каждому
+              </h2>
+              <p class="service__subtitle subtitle">
+                Простой сервис с подсказками и поддержкой 24/7 на каждом этапе
+              </p>
+              <div class="service__steps">
+                <div class="service__steps-item">
+                  <div class="service__steps-title">
+                    <p>
+                      Шаг 1
+                    </p>
+                    Заполнить регистрационную анкету
+                  </div>
+                  <div class="service__steps-number">
+                    1
+                  </div>
+                  <p class="service__steps-text">
+                    Нужно указать основные данные о себе: имя, номер телефона, e-mail и пароль для входа.
+                  </p>
+                </div>
+                <div class="service__steps-item">
+                  <div class="service__steps-title">
+                    <p>
+                      Шаг 2
+                    </p>
+                    Внести деньги на счет
+                  </div>
+                  <div class="service__steps-number">
+                    2
+                  </div>
+                  <p class="service__steps-text">
+                    Вы можете использовать несколько платежных систем для пополнения депозита, включая систему MidexPay и кошелек Bitcoin.
+                  </p>
+                </div>
+                <div class="service__steps-item">
+                  <div class="service__steps-title">
+                    <p>
+                      Шаг 3
+                    </p>
+                    Приступить к онлайн-трейдингу
+                  </div>
+                  <div class="service__steps-number">
+                    3
+                  </div>
+                  <p class="service__steps-text">
+                    Сразу после пополнения депозита торговля через веб-терминал или мобильную платформу будет доступна.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      
+      <section class="bonus" id="bonus">
+        <div class="bonus__glow--left"></div>
+        <div class="bonus__glow--right"></div>
+        <div class="bonus__inner">
+          <div class="bonus__decor">
+            <img src="img/decor/bonus.svg" alt="">
+          </div>
+          <h2 class="bonus__title title">
+            Каждый достоин второго шанса
+          </h2>
+          <p class="bonus__subtile subtitle">
+            Купите свои первые акции без риска, мы вернем вам 100$ на счет в случае проигрыша
+          </p>
+          <div class="bonus__box-btn">
+            <a href="#" class="bonus__button button">
+              <span>
+                Получить бонус
+              </span>
+            </a>
+            <a href="#" class="bonus__button--empty button--empty">
+              <span>
+                Открыть демо-счёт
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <section class="advantages">
+          <div class="advantages__inner">
+            <h2 class="advantages__title title">
+              100 000+ клиентов уже инвестируют с нами
+            </h2>
+            <ul class="advantages__list">
+              <li class="advantages__list-item">
+                <img class="advantages__list-img" src="img/icons/advantages/world.svg" alt="">
+                <p class="advantages__list-title">
+                  Представительство компании в Европе
+                </p>
+                <p class="advantages__list-text">
+                  В разных странах мира компания открывает собсвенные представительства.
+                </p>
+                <a href="#" class="advantages__list-more">
+                  Подробнее →
+                </a>
+              </li>
+              <li class="advantages__list-item">
+                <img class="advantages__list-img" src="img/icons/advantages/wallet.svg" alt="">
+                <p class="advantages__list-title">
+                  Мгновенный ввод и вывод средств
+                </p>
+                <p class="advantages__list-text">
+                  0% комиссия с депозита
+                </p>
+                <a href="#" class="advantages__list-more">
+                  Подробнее →
+                </a>
+              </li>
+              <li class="advantages__list-item">
+                <img class="advantages__list-img" src="img/icons/advantages/people.png" alt="">
+                <p class="advantages__list-title">
+                  Кредитное плечо до 1:1000
+                </p>
+                <a href="#" class="advantages__list-more">
+                  Подробнее →
+                </a>
+              </li>
+              <li class="advantages__list-item">
+                <img class="advantages__list-img" src="img/icons/advantages/clock.svg" alt="">
+                <p class="advantages__list-title">
+                  Время выполнения заказа - 30 мс
+                </p>
+                <p class="advantages__list-text">
+                  Средний показатель по отрасли - 500 мс
+                </p>
+                <a href="#" class="advantages__list-more">
+                  Подробнее →
+                </a>
+              </li>
+              <li class="advantages__list-item">
+                <img class="advantages__list-img" src="img/icons/advantages/apps.png" alt="">
+                <p class="advantages__list-title">
+                  250 торговых инструментов
+                </p>
+                <p class="advantages__list-text">
+                  Валютные пары, акции, металлы, индексы, облигации
+                </p>
+                <a href="#" class="advantages__list-more">
+                  Подробнее →
+                </a>
+              </li>
+              <li class="advantages__list-item">
+                <img class="advantages__list-img" src="img/icons/advantages/money.svg" alt="">
+                <p class="advantages__list-title">
+                  Счета в евро, рублях, долларах США
+                </p>
+                <p class="advantages__list-text">
+                  Пополните свой счет и сэкономьте на сборах за конвертацию
+                </p>
+                <a href="#" class="advantages__list-more">
+                  Подробнее →
+                </a>
+              </li>
+              <li class="advantages__list-item">
+                <img class="advantages__list-img" src="img/icons/advantages/gift.png" alt="">
+                <p class="advantages__list-title">
+                  15% бонус на первый депозит
+                </p>
+                <p class="advantages__list-text">
+                  Может использоваться в торговле и во время просадки
+                </p>
+                <a href="#" class="advantages__list-more">
+                  Подробнее →
+                </a>
+              </li>
+              <li class="advantages__list-item">
+                <img class="advantages__list-img" src="img/icons/advantages/badge.svg" alt="">
+                <p class="advantages__list-title">
+                  Инновационная торговая платформа МТ5
+                </p>
+                <p class="advantages__list-text">
+                  Доступно на IOS и Android
+                </p>
+                <a href="#" class="advantages__list-more">
+                  Подробнее →
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="portfolio">
+          <div class="portfolio__wrapper">
+            <div class="portfolio__profit">
+              <div class="semisircle-progress-bar">
+                <svg viewBox="0 0 690 690">
+                  <defs>
+                    <!-- цвет -->
+                    <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#435F4D" />  <!-- Начальный цвет -->
+                      <stop offset="50%" stop-color="#66D07E" />  <!-- Промежуточный цвет -->
+                      <stop offset="100%" stop-color="#66D07E" /> <!-- Конечный цвет -->
+                    </linearGradient>
+                    <!-- тень -->
+                    <filter id="progress-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow
+                        dx="0"           
+                        dy="4"           
+                        stdDeviation="8"  
+                        flood-color="rgba(106, 219, 131, 0.5)" 
+                      />
+                    </filter>
+                  </defs>
+                  <path
+                    d="M 50 345 A 295 295 0 0 1 640 345"
+                    fill="none"
+                    stroke="#303030"
+                    stroke-width="20"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    id="progress-arc"
+                    d="M 50 345 A 295 295 0 0 1 640 345"
+                    fill="none"
+                    stroke="url(#progress-gradient)"
+                    stroke-width="20"
+                    stroke-dasharray="930"
+                    stroke-dashoffset="283"
+                    style="transition: stroke-dashoffset 0.6s ease"
+                    stroke-linecap="round"
+                    filter="url(#progress-shadow)"
+                  />
+                </svg>
+              </div>
+              <p class="portfolio__profit-subtitle">
+                Доходность
+              </p>
+              <p class="portfolio__profit-title">
+                до 5%
+              </p>
+              <p class="portfolio__profit-risc">
+                Низкий риск
+              </p>
+              <div class="progress-bar">
+                <div class="progress-bar--fill"></div>
+                <div class="progress-bar__sircle"></div>
+              </div>
+              <div class="radio-box">
+                <div class="radio__btn" id="btn-hight">
+                  <label class="custom-radio">
+                    <input type="radio" name="risk" class="real-radio">
+                    <span class="custom-radio"></span>
+                  </label>
+                  <span>Управляю деньгами сам</span>
+                </div>
+                <div class="radio__btn" id="btn-low">
+                  <label class="custom-radio">
+                    <input type="radio" name="risk" class="real-radio" checked>
+                    <span class="custom-radio"></span>
+                  </label>
+                  <span>Доверяю управление</span>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio__body">
+              <h3 class="portfolio__body-title">
+                Подберите индивидуальный инвестиционный портфель
+              </h3>
+              <p class="portfolio__body-text">
+                Покупайте российские и иностранные акции, облигации, валюту и другие продукты в простом и удобном
+                мобильном приложении для iOS и Android
+              </p>
+              <a href="#" class="portfolio__button button">
+                <span>
+                  Получить портфель
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio__bottom">
+            <div class="portfolio__item">
+              <p class="portfolio__title">
+                60 000
+              </p>
+              <p class="portfolio__text">
+                Активных инвесторов
+              </p>
+            </div>
+            <div class="portfolio__item">
+              <p class="portfolio__title">
+                150+
+              </p>
+              <p class="portfolio__text">
+                Торговых инструментов
+              </p>
+            </div>
+            <div class="portfolio__item">
+              <p class="portfolio__title">
+                183 000 USD
+              </p>
+              <p class="portfolio__text">
+                Финансовый результат одного из инвесторов
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="mobile">
+          <div class="mobile__inner">
+            <div class="mobile__info">
+              <h3 class="mobile__title">
+                Инвестируйте <br> с телефона
+              </h3>
+              <p class="mobile__text">
+                Покупайте российские и иностранные акции, облигации, валюту и другие продукты в простом и удобном
+                мобильном приложении для iOS и Android.
+              </p>
+            </div>
+            <div class="mobile__img">
+              <img src="img/decor/mobile.png" alt="">
+            </div>
+          </div>
+          <div class="mobile__bottom">
+            <ul class="mobile__list">
+              <li class="mobile__list-item">
+                <div class="mobile__list-img">
+                  <img src="img/icons/platform.svg" alt="">
+                  <p class="mobile__list-title">
+                    FXPro Trading Platform
+                  </p>
+                  <p class="mobile__list-text">
+                    Level up with our proprietary products
+                  </p>
+                </div>
+              </li>
+              <li class="mobile__list-item">
+                <div class="mobile__list-img">
+                  <img src="img/icons/metatrader4.svg" alt="">
+                  <p class="mobile__list-title">
+                    FXPro MetaTrader 4
+                  </p>
+                  <p class="mobile__list-text">
+                    The popular, classic solution
+                  </p>
+                </div>
+              </li>
+              <li class="mobile__list-item">
+                <div class="mobile__list-img">
+                  <img src="img/icons/metatrader5.svg" alt="">
+                  <p class="mobile__list-title">
+                    FXPro MetaTrader 5
+                  </p>
+                  <p class="mobile__list-text">
+                    A step-up in trading functions
+                  </p>
+                </div>
+              </li>
+              <li class="mobile__list-item">
+                <div class="mobile__list-img">
+                  <img src="img/icons/ctrader.svg" alt="">
+                  <p class="mobile__list-title">
+                    FXPro cTrader
+                  </p>
+                  <p class="mobile__list-text">
+                    A seamless, feature-rich experience
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="apps">
+          <div class="apps__inner">
+            <div class="apps__glow glow"></div>
+            <div class="apps__main">
+              <h3 class="apps__main-title">
+                Инвестируйте с телефона
+              </h3>
+              <div class="apps__main-text">
+                Покупайте российские и иностранные акции, облигации, валюту и другие продукты в простом и удобном
+                мобильном приложении для iOS и Android.
+              </div>
+              <div class="apps__box-btn">
+                <a href="#" class="apps__button">
+                    <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"
+                      width="30px" height="30px">
+                      <path
+                        d="M25.565,9.785c-0.123,0.077-3.051,1.702-3.051,5.305c0.138,4.109,3.695,5.55,3.756,5.55 c-0.061,0.077-0.537,1.963-1.947,3.94C23.204,26.283,21.962,28,20.076,28c-1.794,0-2.438-1.135-4.508-1.135 c-2.223,0-2.852,1.135-4.554,1.135c-1.886,0-3.22-1.809-4.4-3.496c-1.533-2.208-2.836-5.673-2.882-9 c-0.031-1.763,0.307-3.496,1.165-4.968c1.211-2.055,3.373-3.45,5.734-3.496c1.809-0.061,3.419,1.242,4.523,1.242 c1.058,0,3.036-1.242,5.274-1.242C21.394,7.041,23.97,7.332,25.565,9.785z M15.001,6.688c-0.322-1.61,0.567-3.22,1.395-4.247 c1.058-1.242,2.729-2.085,4.17-2.085c0.092,1.61-0.491,3.189-1.533,4.339C18.098,5.937,16.488,6.872,15.001,6.688z" />
+                    </svg>
+                  <span>Скачать для IOS</span>
+                </a>
+                <a href="#" class="apps__button">
+                    <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px"
+                      height="30px">
+                      <path
+                        d="M 9.6777344 1.515625 A 0.50005 0.50005 0 0 0 9.28125 2.3046875 L 10.759766 4.4414062 C 9.3401698 5.5292967 8.3458783 7.145415 8.0800781 9 L 21.919922 9 C 21.654122 7.145415 20.65983 5.5292967 19.240234 4.4414062 L 20.71875 2.3046875 A 0.50005 0.50005 0 0 0 20.306641 1.515625 A 0.50005 0.50005 0 0 0 19.896484 1.7363281 L 18.40625 3.8925781 C 17.398252 3.3277312 16.238794 3 15 3 C 13.761206 3 12.601748 3.3277312 11.59375 3.8925781 L 10.103516 1.7363281 A 0.50005 0.50005 0 0 0 9.6777344 1.515625 z M 12 5 C 12.552 5 13 5.448 13 6 C 13 6.552 12.552 7 12 7 C 11.448 7 11 6.552 11 6 C 11 5.448 11.448 5 12 5 z M 18 5 C 18.552 5 19 5.448 19 6 C 19 6.552 18.552 7 18 7 C 17.448 7 17 6.552 17 6 C 17 5.448 17.448 5 18 5 z M 5 11 C 4.448 11 4 11.448 4 12 L 4 20 C 4 20.552 4.448 21 5 21 C 5.552 21 6 20.552 6 20 L 6 12 C 6 11.448 5.552 11 5 11 z M 8 11 L 8 21 C 8 22.105 8.895 23 10 23 L 10 26.5 C 10 27.328 10.672 28 11.5 28 C 12.328 28 13 27.328 13 26.5 L 13 23 L 17 23 L 17 26.5 C 17 27.328 17.672 28 18.5 28 C 19.328 28 20 27.328 20 26.5 L 20 23 C 21.105 23 22 22.105 22 21 L 22 11 L 8 11 z M 25 11 C 24.448 11 24 11.448 24 12 L 24 20 C 24 20.552 24.448 21 25 21 C 25.552 21 26 20.552 26 20 L 26 12 C 26 11.448 25.552 11 25 11 z" />
+                    </svg>
+                  <span>Скачать для Andriod</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <section class="consalt">
+          <div class="consalt__wrapper">
+            <div class="consalt__body">
+              <div class="consalt__body-info">
+                <h2 class="consalt__body-title">
+                  Мне только спросить
+                </h2>
+                <p class="consalt__body-text">
+                  Собрали в подсказках ответы на популярные вопросы
+                  <br> об инвестициях и сервисе
+                </p>
+              </div>
+              <a href="#" class="consalt__body-button button">
+                <span>
+                  Получить консультацию
+                </span>
+              </a>
+            </div>
+            <ul class="accordeon-list">
+              <li class="accordeon-list__item">
+                <button class="accordeon-list__control" type="button">
+                  <span class="accordeon-list__img">
+                    ?
+                  </span>
+                  <span class="accordeon-list__control-title">
+                    Есть ли плата за обслуживание?
+                  </span>
+                  <span class="accordeon__control-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="24" cy="24" r="22.5"  stroke-width="3"/>
+                      <line x1="14.4142" y1="19.5858" x2="25.3277" y2="30.4993"  stroke-width="4"/>
+                      <line x1="22.6486" y1="30.723" x2="34.6486" y2="19.723"  stroke-width="4"/>
+                      </svg>
+                  </span>
+                </button>
+                <div class="accordeon__content">
+                  Нет, обслуживание полностью бесплатно. Мы не взимаем скрытых комиссий или абонентской платы — вы
+                  оплачиваете только выбранные инвестиционные продукты.
+                </div>
+              </li>
+              <li class="accordeon-list__item">
+                <button class="accordeon-list__control" type="button">
+                  <span class="accordeon-list__img">
+                    ?
+                  </span>
+                  <span class="accordeon-list__control-title">
+                    Как вывести деньги со счёта?
+                  </span>
+                  <span class="accordeon__control-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="24" cy="24" r="22.5"  stroke-width="3"/>
+                      <line x1="14.4142" y1="19.5858" x2="25.3277" y2="30.4993"  stroke-width="4"/>
+                      <line x1="22.6486" y1="30.723" x2="34.6486" y2="19.723"  stroke-width="4"/>
+                      </svg>
+                  </span>
+                </button>
+                <div class="accordeon__content">
+                  Вы можете вывести средства в любой момент через личный кабинет. Просто перейдите в раздел «Вывод
+                  средств», укажите сумму и выберите удобный способ получения. Заявки обрабатываются в течение 1–3
+                  рабочих дней.
+                </div>
+              </li>
+              <li class="accordeon-list__item ">
+                <button class="accordeon-list__control" type="button">
+                  <span class="accordeon-list__img">
+                    ?
+                  </span>
+                  <span class="accordeon-list__control-title">
+                    Какие налоги?
+                  </span>
+                  <span class="accordeon__control-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="24" cy="24" r="22.5"  stroke-width="3"/>
+                      <line x1="14.4142" y1="19.5858" x2="25.3277" y2="30.4993"  stroke-width="4"/>
+                      <line x1="22.6486" y1="30.723" x2="34.6486" y2="19.723"  stroke-width="4"/>
+                      </svg>
+                  </span>
+                </button>
+                <div class="accordeon__content">
+                  Налогообложение зависит от вашего статуса и страны. В большинстве случаев прибыль от инвестиций
+                  облагается налогом на доход. Мы рекомендуем проконсультироваться с налоговым специалистом или
+                  воспользоваться автоматическим расчётом в личном кабинете.
+                </div>
+              </li>
+              <li class="accordeon-list__item">
+                <button class="accordeon-list__control" type="button">
+                  <span class="accordeon-list__img">
+                    ?
+                  </span>
+                  <span class="accordeon-list__control-title">
+                    Где хранятся деньги?
+                  </span>
+                  <span class="accordeon__control-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="24" cy="24" r="22.5" stroke-width="3"/>
+                      <line x1="14.4142" y1="19.5858" x2="25.3277" y2="30.4993" stroke-width="4"/>
+                      <line x1="22.6486" y1="30.723" x2="34.6486" y2="19.723" stroke-width="4"/>
+                      </svg>
+                  </span>
+                </button>
+                <div class="accordeon__content">
+                  Ваши средства размещаются на отдельных счетах в надёжных банках-партнёрах и инвестиционных платформах,
+                  с которыми мы сотрудничаем. Все операции проходят с соблюдением стандартов безопасности и шифрования
+                  данных.
+                </div>
+              </li>
+              <li class="accordeon-list__item">
+                <button class="accordeon-list__control" type="button">
+                  <span class="accordeon-list__img">
+                    ?
+                  </span>
+                  <span class="accordeon-list__control-title">
+                    Как открыть счёт?
+                  </span>
+                  <span class="accordeon__control-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="24" cy="24" r="22.5"  stroke-width="3"/>
+                      <line x1="14.4142" y1="19.5858" x2="25.3277" y2="30.4993"  stroke-width="4"/>
+                      <line x1="22.6486" y1="30.723" x2="34.6486" y2="19.723"  stroke-width="4"/>
+                      </svg>
+                  </span>
+                </button>
+                <div class="accordeon__content">
+                  Открыть счёт очень просто — нажмите на кнопку "Открыть счёт" на сайте, заполните короткую анкету и
+                  подтвердите свою личность. Весь процесс займёт не больше 10 минут.
+                </div>
+              </li>
+              <li class="accordeon-list__item">
+                <button class="accordeon-list__control" type="button">
+                  <span class="accordeon-list__img">
+                    ?
+                  </span>
+                  <span class="accordeon-list__control-title">
+                    Как пополнить счёт?
+                  </span>
+                  <span class="accordeon__control-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="24" cy="24" r="22.5" stroke-width="3"/>
+                      <line x1="14.4142" y1="19.5858" x2="25.3277" y2="30.4993" stroke-width="4"/>
+                      <line x1="22.6486" y1="30.723" x2="34.6486" y2="19.723" stroke-width="4"/>
+                      </svg>
+                  </span>
+                </button>
+                <div class="accordeon__content">
+                  Пополнить счёт можно через банковскую карту, переводом с другого счёта или через онлайн-банк. Все
+                  доступные способы пополнения отображаются в личном кабинете после открытия счёта.
+                </div>
+              </li>
+              <li class="accordeon-list__item">
+                <button class="accordeon-list__control" type="button">
+                  <span class="accordeon-list__img">
+                    ?
+                  </span>
+                  <span class="accordeon-list__control-title">
+                    Что купить?
+                  </span>
+                  <span class="accordeon__control-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="24" cy="24" r="22.5" stroke-width="3"/>
+                      <line x1="14.4142" y1="19.5858" x2="25.3277" y2="30.4993" stroke-width="4"/>
+                      <line x1="22.6486" y1="30.723" x2="34.6486" y2="19.723" stroke-width="4"/>
+                      </svg>
+                  </span>
+                </button>
+                <div class="accordeon__content">
+                  Выбор зависит от ваших целей и уровня риска. Начинающим инвесторам часто рекомендуют
+                  диверсифицированные инструменты, такие как индексные фонды или облигации. Если вы готовы к большему
+                  риску, можно рассмотреть акции отдельных компаний. Перед покупкой стоит изучить информацию и, при
+                  необходимости, проконсультироваться со специалистом.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="callback">
+          <div class="callback__inner">
+            <h2 class="callback__title title">
+              Оставьте заявку на открытие счёта
+            </h2>
+            <div class="steps">
+              <div class="callback__steps-arrow"></div>
+              <div class="callback__steps-arrow--2"></div>
+              <div class="steps__item">
+                <div class="steps__item-img--active">
+                  <div class="steps__item-img-badge">
+                    1
+                  </div>
+                  <img src="img/icons/document.svg" alt="">
+                </div>
+                <p class="steps__item-title">
+                  Заполните заявку онлайн
+                </p>
+                <p class="steps__item-text">
+                  Необходимо: имя, номер телефона, e-mail и пароль для входа.
+                </p>
+              </div>
+              <div class="steps__item">
+                <div class="steps__item-img">
+                  <div class="steps__item-img-badge">
+                    2
+                  </div>
+                  <img src="img/icons/wallet-dark.svg" alt="">
+                </div>
+                <p class="steps__item-title">
+                  Откроем счет за 5 минут
+                </p>
+                <p class="steps__item-text">
+                  Вы можете использовать несколько платежных систем для пополнения депозита, включая систему MidexPay и
+                  кошелек Bitcoin.
+                </p>
+              </div>
+              <div class="steps__item">
+                <div class="steps__item-img">
+                  <div class="steps__item-img-badge">
+                    3
+                  </div>
+                  <img src="img/icons/dollar-dark.svg" alt="">
+                </div>
+                <p class="steps__item-title">
+                  Пополните счёт и начните инвестировать
+                </p>
+                <p class="steps__item-text">
+                  Сразу после пополнения депозита будет доступна торговля через веб-терминал или мобильную платформу.
+                </p>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form">
+            <input class="contact-form__input" type="text" required placeholder="Ваше имя">
+            <input class="contact-form__input" type="tel" required placeholder="+7 --- --- -- --">
+            <input class="contact-form__input" type="email" required placeholder="Email:">
+            <button class="contact-form__button button" type="submit">
+              Оставить заявку
+            </button>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer__glow"></div>
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__content">
+            <div class="footer__logo">
+              <img src="img/logo/footer-logo.svg" alt="логотип компании">
+            </div>
+            <ul class="socials">
+              <li class="socials__item">
+                <a href="#">
+                  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>Instagram</title>
+                    <path
+                      d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077" />
+                  </svg>
+                </a>
+              </li>
+              <li class="socials__item">
+                <a href="#">
+                  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>Facebook</title>
+                    <path
+                      d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="socials__item">
+                <a href="#">
+                  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>VK</title>
+                    <path
+                      d="m9.489.004.729-.003h3.564l.73.003.914.01.433.007.418.011.403.014.388.016.374.021.36.025.345.03.333.033c1.74.196 2.933.616 3.833 1.516.9.9 1.32 2.092 1.516 3.833l.034.333.029.346.025.36.02.373.025.588.012.41.013.644.009.915.004.98-.001 3.313-.003.73-.01.914-.007.433-.011.418-.014.403-.016.388-.021.374-.025.36-.03.345-.033.333c-.196 1.74-.616 2.933-1.516 3.833-.9.9-2.092 1.32-3.833 1.516l-.333.034-.346.029-.36.025-.373.02-.588.025-.41.012-.644.013-.915.009-.98.004-3.313-.001-.73-.003-.914-.01-.433-.007-.418-.011-.403-.014-.388-.016-.374-.021-.36-.025-.345-.03-.333-.033c-1.74-.196-2.933-.616-3.833-1.516-.9-.9-1.32-2.092-1.516-3.833l-.034-.333-.029-.346-.025-.36-.02-.373-.025-.588-.012-.41-.013-.644-.009-.915-.004-.98.001-3.313.003-.73.01-.914.007-.433.011-.418.014-.403.016-.388.021-.374.025-.36.03-.345.033-.333c.196-1.74.616-2.933 1.516-3.833.9-.9 2.092-1.32 3.833-1.516l.333-.034.346-.029.36-.025.373-.02.588-.025.41-.012.644-.013.915-.009ZM6.79 7.3H4.05c.13 6.24 3.25 9.99 8.72 9.99h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V7.3H10.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92Z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="socials__item">
+                <a href="#">
+                  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>YouTube</title>
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+            <a href="#">
+              Политика передачи данных
+            </a>
+          </div>
+          <div class="callme">
+            <p class="callme__text">
+              Звонок по России бесплатный
+            </p>
+            <a href="tel:+74952121671" class="phone">
+              8 (495) 212-16-71
+            </a>
+            <button class="callme__button button">
+              Перезвоните мне
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="./js/main.js"></script>
 </body>
+
 </html>
